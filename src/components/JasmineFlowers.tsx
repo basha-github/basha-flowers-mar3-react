@@ -14,11 +14,12 @@ interface flower{
 
 
 
-export default function AllFlowers() {
+export default function JasmineFlowers() {
   const [flowersData, setFlowersData] = useState<flower[]>([]);
 
   useEffect(() => {
-    axios.get<flower[]>("http://localhost:8080/flowers/app/get/all").then((res) => {
+    axios.get<flower[]>(
+        "http://localhost:8080/flowers/app/get/byCategory?category=Jasmine").then((res) => {
       setFlowersData(res.data);
     });
   }, []);
